@@ -11,7 +11,14 @@ $ImageFon: rgba(244, 245, 248, 1);
 $HtmlFon: rgba(255, 255, 255, 1);
 
 // общее поведение
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  width: 100%;
+}
 
 
 
