@@ -1,5 +1,6 @@
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const libImport = '@import "./mixins";';
 
 let mode = 'development';
 if (process.env.NODE_ENV === 'production') {
@@ -49,7 +50,7 @@ module.exports = {
                             }
                         }
                     },
-                    "sass-loader"
+                    "sass-loader",
                 ]
             },
             {

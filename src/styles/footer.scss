@@ -1,0 +1,15 @@
+@import "mixins";
+.footer {
+  @include mobile {
+
+  }
+  @include tablet {
+
+  }
+  @include laptop {
+
+  }
+  @include desktop {
+
+  }
+}

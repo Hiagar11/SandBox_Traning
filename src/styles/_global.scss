@@ -1,0 +1,35 @@
+// Глобальные цвета\схема цветов
+
+//Слайдер
+$backgroundSection: rgba(32, 34, 38, 1);
+$borderSlider: rgba(54, 56, 60, 1);
+// Текст
+$TextSubTitle: rgba(117, 117, 117, 1);
+$TextTitle: rgba(22, 22, 22, 1);
+// Фон разных элементов
+$ImageFon: rgba(244, 245, 248, 1);
+$HtmlFon: rgba(255, 255, 255, 1);
+
+// общее поведение
+
+
+
+
+// Общий адаптив
+@import "mixins";
+.header__container, .main__container, .footer__container {
+  width: 100%;
+  @include mobile {
+    padding: 14px 5%;
+  }
+  @include tablet {
+    padding: 22px 10%;
+  }
+  @include laptop {
+    padding:14px 3%;
+  }
+  @include desktop {
+    padding:14px 3%;
+  }
+
+}
