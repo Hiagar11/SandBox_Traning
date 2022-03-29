@@ -1,7 +1,25 @@
 @import "mixins";
+@import "global";
 .main {
-  @include mobile {
+  .nav {
+    margin: 1vh 0;
+    .nav__item {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 0.5vw;
+      display: inline-block;
+      background-color: $DifferentFon;
+    }
+  }
 
+
+  @include mobile {
+    .nav {
+
+    }
   }
   @include tablet {
 
