@@ -1,33 +1,176 @@
 @import "mixins";
 @import "global";
+
 .main {
-  .nav {
-    margin: 1vh 0;
-    .nav__item {
-      color: black;
+  //Меню мобильной версии как продолжение шапки
+  .mobile {
+    list-style-type: none;
+    .mobile__item {
       text-decoration: none;
-      font-weight: bold;
-      padding: 10px;
-      border-radius: 10px;
-      margin: 0.5vw;
-      display: inline-block;
+      color: $TextTitle;
       background-color: $DifferentFon;
+      width: 100%;
+      display: inline-block;
+      padding: 10px;
+      border-bottom: 1px solid lighten($backgroundSection, 70%);
+      border-top: 1px solid lighten($backgroundSection, 40%);
+      text-align: center;
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
-
-
-  @include mobile {
+  // основной контент страницы
+  .main__container {
     .nav {
+      margin: 1vh 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 7vh;
+      .nav__item {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 0.5vw;
+        display: inline-block;
+        background-color: $DifferentFon;
 
+        &:not(.request):hover {
+          background-color: darken($DifferentFon, 10%);
+        }
+      }
+
+      .search, .basket {
+        padding: 5px;
+        width: 40px;
+        text-align: center;
+      }
+
+      .request {
+        background-color: $TextTitle;
+        color: $HtmlFon;
+
+        &:hover {
+          background-color: $DifferentFon;
+          color: black;
+        }
+      }
+
+      .mobile__menu {
+        display: none;
+        background-color: $DifferentFon;
+        border: none;
+        border-radius: 10px;
+        width: 40px;
+        position: relative;
+
+        &.open::before {
+          content: '';
+          width: 40%;
+          height: 2px;
+          background-color: $TextTitle;
+          position: absolute;
+          top: 10px;
+          left: 30%;
+          box-shadow: 0 6px 0 0 $TextTitle,
+          0 12px 0 0 $TextTitle;
+        }
+        &.close::before {
+          content: '';
+          width: 50%;
+          height: 2px;
+          background-color: $TextTitle;
+          position: absolute;
+          top: 15px;
+          left: 25%;
+          transform: rotate(45deg);
+        }
+        &.close::after {
+          content: '';
+          width: 50%;
+          height: 2px;
+          background-color: $TextTitle;
+          position: absolute;
+          top: 15px;
+          left: 25%;
+          transform: rotate(135deg);
+        }
+      }
+
+      .mobile__menu:hover {
+        cursor: pointer;
+        background-color: darken($DifferentFon, 10%);
+      }
     }
-  }
-  @include tablet {
 
-  }
-  @include laptop {
 
-  }
-  @include desktop {
 
+    @include mobile {
+      .nav {
+        .nav__item {
+          display: none;
+        }
+
+        .search, .basket {
+          margin: 0 1vw;
+          display: flex;
+          padding: 5px;
+          width: 40px;
+          justify-content: center;
+        }
+
+        .mobile__menu {
+          display: flex;
+          margin-left: auto;
+        }
+      }
+    }
+    @include tablet {
+      .nav {
+        .nav__item {
+          padding: 10px 20px;
+          align-self: center;
+        }
+        .search, .basket{
+          padding: 5px 8px;
+        };
+        .nav__item:nth-child(4n) {
+          break-after: left;
+        }
+      }
+    }
+    @include laptop {
+      .nav {
+        .nav__item {
+          padding: 10px 20px;
+          align-self: center;
+        }
+        .search, .basket{
+          padding: 5px 8px;
+        };
+        .nav__item:nth-child(5n) {
+          margin-left: auto;
+        }
+        .nav__item:nth-child(6n) {
+          break-after: left;
+        }
+      }
+    }
+    @include desktop {
+      .nav {
+        .nav__item {
+          padding: 10px 20px;
+          align-self: center;
+        }
+        .search, .basket{
+          padding: 5px 8px;
+        };
+        .nav__item:nth-child(5n) {
+          margin-left: auto;
+        }
+      }
+    }
   }
 }
