@@ -25,7 +25,7 @@
 
 </header>
 <main class="main">
-    <ul class="mobil hidden">
+    <ul class="mobile hidden">
         <li><a href="" class="mobile__item">Каталог</a></li>
         <li><a href="" class="mobile__item">Наше производство</a></li>
         <li><a href="" class="mobile__item">О компании</a></li>
@@ -56,9 +56,15 @@
 
         <section class="slider">
             <figure class="slider__preview  preview ">
-                <img src="images/6.png" alt="" class="preview__img">
+                <picture class="preview__img">
+                    <source srcset="images/machine--mobile.png" media="(max-width: 767px)">
+                    <source srcset="images/machine--laptop.png" media="(min-width: 768px) and (max-width: 1023px)">
+                    <source srcset="images/machine--tablet.png" media="(min-width: 1024px) and (max-width: 1279px)">
+                    <source srcset="images/machine--desktop.png" media="(min-width: 1280px)">
+                    <img src="images/machine--mobile.png" alt="">
+                </picture>
                 <figcaption class="preview__desc">
-                    <h2 class="preview__title">Новый зверь
+                    <h2 class="preview__title">Новый зверь <br>
                         для всех типов кабелей</h2>
                     <table class="preview__features table">
                         <tr class="table__tr">
@@ -89,12 +95,25 @@
                     <span class="preview__price">209 000 Р</span>
                 </figcaption>
             </figure>
-            <a href="" class="slider__more">Подробнее</a>
-            <div class="slider__control control">
-                <button class="control__prev"></button>
-                <button class="control__next"></button>
+            <div class="slider__btns">
+                <a href="" class="slider__more">Подробнее</a>
+                <div class="slider__control control">
+                    <button class="control__prev">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.828 12.0007L15.778 16.9507L14.364 18.3647L8 12.0007L14.364 5.63672L15.778 7.05072L10.828 12.0007Z"
+                                  fill="#161616"/>
+                        </svg>
+                    </button>
+                    <button class="control__next">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.1722 12.0007L8.22217 7.05072L9.63617 5.63672L16.0002 12.0007L9.63617 18.3647L8.22217 16.9507L13.1722 12.0007Z"
+                                  fill="#161616"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
+
         <section class="articles">
             <h2 class="articles__title">Сепараторы, конвейеры, шнековые транспортеры и линии для переработки</h2>
             <h3 class="articles__subtitle">Мы на связи всегда и разберемся с любыми вопросами возникшими во время
@@ -126,6 +145,7 @@
                 </li>
             </ul>
         </section>
+
         <section class="benefits">
             <h2 class="benefits__title">Ваш рост – наш интерес, ведь тогда нам будет к чему стремиться</h2>
             <ul class="benefits__list">
@@ -160,35 +180,41 @@
 
             </ul>
         </section>
+
         <section class="cooperate">
             <div class="cooperate__text">
                 <h2 class="cooperate__title">Почему именно мы?</h2>
                 <p class="cooperate__desc">За долгое время работы в этой области у нас более одной тысячи клиентов в
                     базе, в том числе и представленные выше. В основном это компании по переработке вторсырья.
-
+                    <br>
+                    <br>
                     Мы уже прошли тот путь который вам предстоит пройти после приобретения нашей продукции и лучше
                     подскажем: что вам лучше подойдет, чего надо избегать и как более эффективно использовать то что
                     есть.</p>
             </div>
-            <div class="cooperate__item">
-                <img class="cooperate__img" src="images/logo_1.png" alt="">
+            <div class="cooperate__list">
+                <div class="cooperate__item">
+                    <img class="cooperate__img" src="images/logo_1.png" alt="">
+                </div>
+                <div class="cooperate__item">
+                    <img class="cooperate__img" src="images/logo_2.png" alt="">
+                </div>
+                <div class="cooperate__item">
+                    <img class="cooperate__img" src="images/logo_3.png" alt="">
+                </div>
+                <div class="cooperate__item">
+                    <img class="cooperate__img" src="images/logo_4.png" alt="">
+                </div>
+                <div class="cooperate__item">
+                    <img class="cooperate__img" src="images/logo_5.png" alt="">
+                </div>
+                <div class="cooperate__item">
+                    <img class="cooperate__img" src="images/logo_6.png" alt="">
+                </div>
             </div>
-            <div class="cooperate__item">
-                <img class="cooperate__img" src="images/logo_2.png" alt="">
-            </div>
-            <div class="cooperate__item">
-                <img class="cooperate__img" src="images/logo_3.png" alt="">
-            </div>
-            <div class="cooperate__item">
-                <img class="cooperate__img" src="images/logo_4.png" alt="">
-            </div>
-            <div class="cooperate__item">
-                <img class="cooperate__img" src="images/logo_5.png" alt="">
-            </div>
-            <div class="cooperate__item">
-                <img class="cooperate__img" src="images/logo_6.png" alt="">
-            </div>
+
         </section>
+
         <section class="feedback">
             <div class="feedback__text">
                 <h2 class="feedback__title">
@@ -198,13 +224,10 @@
                     интересующим вопросам</p>
             </div>
             <form class="feedback__form form" action="">
-                <label for="name" class="form__label">Ваше имя</label>
-                <input type="text" class="form__input" id="name">
-                <label for="tel" class="form__label">+ 7 (___) __ __</label>
-                <input type="text" class="form__input" id="tel">
-                <label for="mail" class="form__label">E-mail (необязательно)</label>
-                <input type="text" class="form__input" id="mail">
-                <input type="submit" value="Отправить">
+                <input type="text" class="form__input" id="name" placeholder="Имя">
+                <input type="text" class="form__input" id="tel" placeholder="+7 (___) __ __">
+                <input type="text" class="form__input" id="mail" placeholder="E-mail(необязательно)">
+                <input type="submit" class="form__submit" value="Отправить">
             </form>
         </section>
     </div>
@@ -225,9 +248,9 @@
                 </p>
                 <div class="info__socials socials">
                     <a href="" class="socials__what">Whatsapp</a>
-                    <a href="" class="socials__tele">WhatsaTelegrampp</a>
-                    <a href="" class="socials__inst">#</a>
-                    <a href="" class="socials__yout">#</a>
+                    <a href="" class="socials__tele">Telegram</a>
+                    <a href="" class="socials__inst"></a>
+                    <a href="" class="socials__yout"></a>
                     <p class="socials__text">Подписывайтесь на нас в социальных сетях</p>
                 </div>
             </div>

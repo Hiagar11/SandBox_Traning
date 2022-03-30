@@ -28,7 +28,10 @@ html {
   z-index: -1;
 
 }
-
+h2 {
+  font-size: 40px;
+  line-height: 48px;
+}
 
 // Общий адаптив
 @import "mixins";
@@ -36,6 +39,10 @@ html {
   width: 100%;
   @include mobile {
     padding: 14px 5%;
+    h2 {
+      font-size: 24px;
+      line-height: 28px;
+    }
   }
   @include tablet {
     padding: 22px 10%;
