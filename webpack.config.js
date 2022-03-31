@@ -1,5 +1,8 @@
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const libImport = '@import "./mixins";';
+const webpack = require('webpack');
 
 let mode = 'development';
 if (process.env.NODE_ENV === 'production') {
@@ -14,6 +17,11 @@ module.exports = {
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
     },
+    devServer: { // Добавляем элементы конфигурации
+        port: 3333,
+        hot: true,
+        static: path.join(__dirname, "src"),
+    },
     devtool: 'source-map',
     plugins: [
         new MiniCssExtractPlugin({
@@ -22,6 +30,7 @@ module.exports = {
         new htmlWebpackPlugin({
             template: './src/index.html'
         }),
+        new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
         rules: [
@@ -49,7 +58,7 @@ module.exports = {
                             }
                         }
                     },
-                    "sass-loader"
+                    "sass-loader",
                 ]
             },
             {
