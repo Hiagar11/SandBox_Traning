@@ -5,6 +5,7 @@
   .footer__container {
     .footer__logo {
       width: 100%;
+      padding-bottom: 2vh;
       display: flex;
       border-bottom: 1px solid darken($DifferentFon, 10%);
     }
@@ -83,6 +84,7 @@
       }
     }
     .footer__about {
+      padding-top: 2vh;
       margin-top: 5vh;
       border-top: 1px solid darken($DifferentFon, 10%);
       display: flex;

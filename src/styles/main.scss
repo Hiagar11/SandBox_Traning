@@ -2,25 +2,100 @@
 @import "global";
 
 .main {
-  //Меню мобильной версии как продолжение шапки
   .mobile {
-    list-style-type: none;
-
-    .mobile__item {
-      text-decoration: none;
-      color: $TextTitle;
-      background-color: $DifferentFon;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    background-color: $HtmlFon;
+    //outline: 1px solid red;
+    .mobile__header {
+      display: flex;
+      justify-content: space-between;
       width: 100%;
-      display: inline-block;
-      padding: 10px;
-      border-bottom: 1px solid lighten($backgroundSection, 70%);
-      border-top: 1px solid lighten($backgroundSection, 40%);
-      text-align: center;
+      margin-bottom: 2vh;
+      .mobile__menu {
+        width: 40px;
+        height: 40px;
+        align-self: center;
+        border: none;
+        border-radius: 10px;
+        background-color: $DifferentFon;
+        position: relative;
+        &:hover {
+          cursor: pointer;
+          background-color: darken($DifferentFon, 8%);
+        }
+        &.close::before {
+          content: '';
+          width: 40%;
+          height: 2px;
+          background-color: $TextTitle;
+          position: absolute;
+          top: 18px;
+          left: 12px;
+          transform: rotate(45deg);
+        }
+        &.close::after {
+          content: '';
+          width: 40%;
+          height: 2px;
+          background-color: $TextTitle;
+          position: absolute;
+          top: 18px;
+          left: 12px;
+          transform: rotate(135deg);
+        }
+      }
 
-      &:hover {
-        opacity: 0.7;
+      .mobile__logo {
+        align-self: center;
       }
     }
+
+    .mobile__list {
+      align-self: start;
+      width: 100%;
+      //outline: 1px solid red;
+      list-style-type: none;
+
+      .mobile__item {
+        text-decoration: none;
+        color: $TextTitle;
+        display: block;
+        padding: 5% 0;
+        border-bottom: 2px solid darken($DifferentFon, 10%);
+
+        &:hover, &:active, &:focus {
+          background-color: $DifferentFon;
+          color: $backgroundSection;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .request {
+      width: 100%;
+      text-align: center;
+      display: block;
+      background-color: $backgroundSection;
+      color: $HtmlFon;
+      text-decoration: none;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: auto;
+
+      &:hover, &:active, &:focus {
+        background-color: $DifferentFon;
+        color: $backgroundSection;
+        cursor: pointer;
+      }
+    }
+
   }
 
   // основной контент страницы
@@ -81,27 +156,6 @@
           0 12px 0 0 $TextTitle;
         }
 
-        &.close::before {
-          content: '';
-          width: 50%;
-          height: 2px;
-          background-color: $TextTitle;
-          position: absolute;
-          top: 15px;
-          left: 25%;
-          transform: rotate(45deg);
-        }
-
-        &.close::after {
-          content: '';
-          width: 50%;
-          height: 2px;
-          background-color: $TextTitle;
-          position: absolute;
-          top: 15px;
-          left: 25%;
-          transform: rotate(135deg);
-        }
       }
 
       .mobile__menu:hover {
@@ -123,12 +177,14 @@
 
         .preview__img {
           display: block;
-          max-width: max-content;
-          height: auto;
           border-radius: 10px;
           padding: 10px;
           text-align: center;
           background-color: $HtmlFon;
+
+          img {
+            width: 100%;
+          }
         }
 
         .preview__desc {
@@ -350,10 +406,9 @@
           min-height: 82px;
 
           .cooperate__img {
-            margin: 0 auto;
-            max-width: max-content;
-            height: max-content;
+            width: min-content;
             align-self: center;
+            margin: 0 auto;
           }
         }
       }
@@ -367,22 +422,27 @@
       display: flex;
       flex-direction: column;
       border-radius: 10px;
+
       .feedback__text {
         display: flex;
         flex-direction: column;
         margin-bottom: 5vh;
+
         .feedback__title {
           width: 100%;
           padding: 10px 0;
         }
+
         .feedback__desc {
           width: 100%;
           color: $TextSubTitle
         }
       }
+
       .feedback__form, form {
         display: flex;
         flex-direction: column;
+
         .form__submit {
           max-width: 30%;
           border: none;
@@ -391,6 +451,7 @@
           border-radius: 10px;
           margin-top: 20px;
         }
+
         .form__input {
           border: none;
           padding: 10px;
@@ -399,6 +460,7 @@
           color: lighten($TextSubTitle, 30%);
           border-bottom: 1px solid lighten($TextSubTitle, 50%);
           font-size: 18px;
+
           &:focus {
             outline: none;
           }
@@ -579,9 +641,11 @@
       .feedback {
         justify-content: space-between;
         flex-direction: row;
+
         .feedback__text {
           width: 45%;
         }
+
         .feedback__form, form {
           width: 45%;
         }
@@ -622,6 +686,9 @@
             font-size: 40px;
           }
 
+          .preview__price {
+            margin-top: auto;
+          }
         }
       }
 
@@ -666,15 +733,15 @@
         justify-content: space-between;
 
         .cooperate__text {
-          width: 49%;
-          align-self: center;
+          width: 48%;
+          margin: 0.5%;
         }
 
         .cooperate__list {
-          width: 49%;
-          align-self: center;
+          width: 48%;
+
           .cooperate__item {
-            height: auto;
+            margin: 1%;
           }
         }
       }
@@ -682,9 +749,11 @@
       .feedback {
         justify-content: space-between;
         flex-direction: row;
+
         .feedback__text {
           width: 45%;
         }
+
         .feedback__form, form {
           width: 45%;
         }

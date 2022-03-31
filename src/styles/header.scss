@@ -74,9 +74,9 @@
 
   @include laptop {
     .header__links {
-      width: border-box;
+      width: max-content;
       display: flex;
-      margin-left: 20vw;
+      margin-left: auto;
       & > * {
         overflow: hidden;
         align-self: center;
@@ -92,9 +92,9 @@
   @include desktop {
 
     .header__links {
-      width: 100%;
+      width: max-content;
       display: flex;
-      margin-left: 30vw;
+      margin-left: auto;
 
       & > * {
         overflow: hidden;
