@@ -1,0 +1,70 @@
+@use "mixins";
+@use "colors";
+@use 'fonts';
+html {
+  min-width: 320px;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: Regular;
+}
+h2, h3, h4 {
+  font-family: Special;
+}
+.hidden {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  visibility: hidden;
+  opacity: 0;
+}
+img, svg , picture {
+  width: 100%;
+  object-fit: none;
+}
+body {
+  overflow-x: hidden;
+  @include mixins.phones {
+    background-image: url("../imges/bc-color.svg");
+    background-color: colors.$text-section;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position:  100%;
+    background-size: 50px;
+  }
+  @include mixins.laptop {
+    background-image: url("../imges/bc-road.svg"), url("../imges/bc-color.svg");
+    background-repeat: no-repeat, repeat;
+    background-attachment:  local, fixed;
+    background-position:  0 0, 100%;
+    background-size:  contain, 75px;
+  }
+  background-image: url("../imges/logo-car.svg"), url("../imges/bc-road.svg"), url("../imges/bc-color.svg");
+  background-repeat:no-repeat, no-repeat, repeat;
+  background-attachment: scroll, local, fixed;
+  background-position: -5% -50px, 0% 0%, 100%;
+  background-size: 50%, contain, 75px;
+}
+a {
+  text-decoration: none;
+  color: colors.$subtext;
+}
+.container {
+  @include mixins.phones {
+    padding: 0 12px;
+  }
+  @include mixins.tablet {
+    padding: 0 20px;
+  }
+  @include mixins.laptop {
+    padding: 0 40px;
+  }
+  @include mixins.desktop {
+    padding: 0 80px;
+  }
+}

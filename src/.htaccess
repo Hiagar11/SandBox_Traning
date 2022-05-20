@@ -1,0 +1,5 @@
+DirectoryIndex index.html
+Options -Indexes
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.site.ru$ [NC]
+RewriteRule ^(.*)$ https://site.ru/$1 [R=301,L]

@@ -1,0 +1,214 @@
+@use "mixins";
+@use "colors";
+
+@keyframes calling {
+  from {
+    transform: rotate(-10deg);
+  }
+  5% {
+    transform: rotate(10deg);
+  }
+  10% {
+    transform: rotate(-5deg);
+  }
+  15% {
+    transform: rotate(5deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.footer {
+  background-color: colors.$fon-section;
+  color: colors.$text-section;
+  display: flex;
+  flex-wrap: wrap;
+  .footer__operators {
+    font-size: 32px;
+    break-after: left;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: url("../imges/operator.svg") no-repeat;
+      background-size: 60px 60px;
+      top: 20%;
+      left: -100px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: url("../imges/operator.svg") no-repeat;
+      background-size: 60px 60px;
+      top: 20%;
+      right: -100px;
+    }
+  }
+  .footer__socials, .footer__msg, .footer__tel {
+    width: 33%;
+    a:active {
+      color: colors.$decor-section;
+    }
+  }
+  .footer__socials {
+    display: flex;
+    flex-direction: column;
+    a {
+      padding: 20px 0;
+      color: colors.$text-section;
+      font-size: 22px;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+      &:first-child::before {
+        content: '';
+        position: absolute;
+        top: 20%;
+        left: -40px;
+        background: url("../imges/vk.svg");
+        background-size: 44px 44px;
+        width: 44px;
+        height: 44px;
+      }
+      &:last-child::before {
+        content: '';
+        position: absolute;
+        top: 20%;
+        left: -40px;
+        background: url("../imges/insta.svg");
+        background-size: 44px 44px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+  }
+  .footer__tel,  {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: darken(colors.$text-section, 15%);
+      font-size: 24px;
+      padding: 12px 20px;
+      position: relative;
+      display: block;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        width: 44px;
+        height: 44px;
+        background: url("../imges/callMe.svg") no-repeat;
+        background-size: 44px 44px;
+        top: 10%;
+        left: -40px;
+        animation: calling 3s infinite;
+      }
+    }
+  }
+  .footer__msg {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: darken(colors.$text-section, 15%);
+      font-size: 24px;
+      padding: 12px 20px;
+      position: relative;
+      display: block;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        width: 44px;
+        height: 44px;
+        background: url("../imges/message.svg") no-repeat;
+        background-size: 44px 44px;
+        top: 10%;
+        left: -40px;
+      }
+    }
+  }
+  @include mixins.phones {
+    .footer__operators {
+      font-size: 20px;
+      line-height: 24px;
+    }
+    .footer__msg, .footer__socials,.footer__tel {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      a {
+        padding: 20px;
+        margin: 0 auto;
+        width: 60vw;
+      }
+    }
+    .footer__tel {
+      padding-bottom: 60px;
+    }
+  }
+  @include mixins.tablet {
+    .footer__operators {
+      width: 70%;
+    }
+    .footer__socials {
+      width: 100%;
+      flex-direction: row;
+      a {
+        margin: 0 auto;
+        padding: 20px 12px;
+      }
+    }
+   .footer__msg{
+     width: 49%;
+     padding: 30px;
+   }
+  .footer__tel{
+    width: 49%;
+    padding: 30px;
+  }
+  }
+  @include mixins.laptop {
+    .footer__socials,.footer__tel ,.footer__msg {
+      a {
+        text-align: center;
+        margin: 0 auto;
+        width: 200px;
+      }
+    }
+  }
+  @include mixins.desktop {
+    .footer__socials,.footer__tel ,.footer__msg {
+      a {
+        text-align: center;
+        margin: 0 auto;
+        width: 350px;
+      }
+    }
+    .footer__socials {
+      a {
+        width: 200px;
+      }
+    }
+  }
+}
