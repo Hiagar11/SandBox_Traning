@@ -4,7 +4,7 @@
 
 ____
 Описание проектов: 
-+ [Okoprom](https://github.com/Hiagar11/SandBox_Traning/tree/Okoprom):  
++ [Okoprom](https://github.com/Hiagar11/SandBox_Traning/tree/Okoprom#title):  
     + Первый проект с должной серьезностью. Учит осоновам БЭМ и адаптиву.
-+ [Pegas-Taxi](https://github.com/Hiagar11/SandBox_Traning/edit/PegasTaxi_Landing/README.md):
++ [Pegas-Taxi](https://github.com/Hiagar11/SandBox_Traning/tree/PegasTaxi_Landing#title): 
     + Проект сделанный для знакомых, реализована бесконечная карусель, озномился с базой SEO, понял ошибки при использовании BEM.
